@@ -19,4 +19,6 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
-./*.sh
+
+upload-1151225.sh
+test2.sh
