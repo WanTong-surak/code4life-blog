@@ -1,25 +1,34 @@
 ---
-import HeaderLink from './HeaderLink.astro';
-import { SITE_TITLE } from '../consts';
+import HeaderLink from './HeaderLink.astro'
+import { IoLogoGithub } from 'react-icons/io5/index.js'
+import BlogLogo from './icons/bloglogo'
+import ThemeToggle from './ThemeToggleButton'
 ---
 
-<header>
-	<h2>
-		{SITE_TITLE}
-	</h2>
-	<nav>
-		<HeaderLink href="/">Home</HeaderLink>
-		<HeaderLink href="/blog">Blog</HeaderLink>
-		<HeaderLink href="/about">About</HeaderLink>
-		<HeaderLink href="https://twitter.com/astrodotbuild" target="_blank">Twitter</HeaderLink>
-		<HeaderLink href="https://github.com/withastro/astro" target="_blank">GitHub</HeaderLink>
-	</nav>
+<header class="w-full py-14 p-2 backdrop-blur-md">
+  <div class="mx-auto max-w-5xl">
+    <nav class="flex items-center justify-between gap-2 text-base">
+      <div class="flex flex-col items-end">
+        <a href="/" class="group">
+          <h2
+            class="flex items-center font-semibold tracking-tighter font-mplus text-4xl"
+          >
+            <p class="mx-2">Code4life</p>
+            <BlogLogo />
+          </h2>
+        </a>
+        <p class="text-xl"><sup>Blogger&Developer</sup></p>
+      </div>
+
+      <div class="items-center gap-6 hidden md:flex">
+        <HeaderLink href="/posts">Posts</HeaderLink>
+        <HeaderLink href="/works">Works</HeaderLink>
+        <HeaderLink href="/about">About</HeaderLink>
+        <HeaderLink href="https://github.com/withastro/astro" target="_blank">
+          <IoLogoGithub /> Source
+        </HeaderLink>
+      </div>
+      <ThemeToggle client:load />
+    </nav>
+  </div>
 </header>
-<style>
-	header {
-		margin: 0em 0 2em;
-	}
-	h2 {
-		margin: 0.5em 0;
-	}
-</style>

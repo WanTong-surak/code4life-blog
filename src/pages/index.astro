@@ -1,50 +1,74 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseHead from '../components/BaseHead.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import Body from '../components/Body.astro'
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
+import Content from '../components/Content.astro'
+import {
+  IoLogoWechat,
+  IoMailSharp,
+  IoLogoGithub,
+  IoArrowForward,
+  IoLogoRss
+} from 'react-icons/io5/index.js'
+import { FaTelegramPlane } from 'react-icons/fa/index.js'
+import FormattedDate from '../components/FormattedDate.astro'
+import { getCollection } from 'astro:content'
+const posts = (await getCollection('blog')).sort(
+  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+)
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header title={SITE_TITLE} />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/pages/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <Body>
+    <Header title={SITE_TITLE} />
+    <main class="pt-2">
+      <Content>
+        <section>
+          <p>
+            Hey, 我是code4life，一个为生活沪飘的程序员，这里是我的独立博客站点。
+            这里将存放我个人的一些技术分享，以及职业生涯中的一些想法。非常惭愧，工作多年之后才又开始尝试积累个人数字资产，三年疫情过来，受限于空间和时间，多了很多感悟和想法，重启搭建这个博客站点就是其中之一。
+            截止目前一共发布了223篇博客，共230023字，折腾过0个作品，共收益0￥。
+            <a
+              class="inline-flex items-center gap-1 indent-1 text-red-600"
+              href=""
+              >Learn more about me<IoArrowForward className="inline" /></a
+            >
+          </p>
+          <p class="italic my-3">
+            除了关注我的公众号，你也可以通过以下方式联系我：
+          </p>
+          <div class="flex">
+            <a class="mr-4" href=""><IoLogoWechat size={26} /></a>
+            <a class="mr-4" href=""><IoLogoGithub size={26} /></a>
+            <a class="mr-4" href=""><IoMailSharp size={26} /></a>
+            <a class="mr-4" href=""><FaTelegramPlane size={26} /></a>
+            <a class="mr-4" href="/blog/rss.xml"><IoLogoRss size={26} /></a>
+          </div>
+        </section>
+        <hr class="my-4" />
+        <section aria-label="Blog post list">
+          <h3 class="mb-4 text-lg font-semibold">最近更新:</h3>
+          <ul class="space-y-4 sm:space-y-2 mx-4">
+            {
+              posts.map(post => (
+                <li class="flex items-center justify-start">
+                  <FormattedDate date={post.data.pubDate} />
+                  <a class="underline" href={`/blog/${post.slug}/`}>
+                    {post.data.title}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+      </Content>
+      <Footer />
+    </main>
+  </Body>
 </html>

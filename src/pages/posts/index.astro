@@ -1,0 +1,50 @@
+---
+import BaseHead from '../../components/BaseHead.astro'
+import Header from '../../components/Header.astro'
+import Footer from '../../components/Footer.astro'
+import Body from '../../components/Body.astro'
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts'
+import Content from '../../components/Content.astro'
+import { getCollection } from 'astro:content'
+import BlogList from './blogList'
+const posts = (await getCollection('blog')).sort(
+  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+)
+
+const blogList = posts.reduce((result: any, blog) => {
+  const year = blog.data.pubDate.getFullYear()
+  if (!result[year]) {
+    result[year] = []
+  }
+  result[year].push(blog)
+  return result
+}, {})
+const years = Object.keys(blogList)
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <Body>
+    <Header title={SITE_TITLE} />
+    <main class="pt-2">
+      <Content>
+        <section class="lg:mx-20">
+          {
+            years
+              .sort((a: any, b: any) => b - a)
+              .map(year => (
+                <>
+                  <h3 class="text-3xl font-semibold mt-6">{year}</h3>
+                  <BlogList list={blogList[year]} />
+                </>
+              ))
+          }
+        </section>
+      </Content>
+      <Footer />
+    </main>
+  </Body>
+</html>

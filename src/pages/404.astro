@@ -1,0 +1,45 @@
+---
+import BaseHead from '../components/BaseHead.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import Body from '../components/Body.astro'
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
+import Content from '../components/Content.astro'
+import { IoChevronForward } from 'react-icons/io5/index.js'
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <Body>
+    <Header title={SITE_TITLE} />
+    <main class="pt-2">
+      <Content>
+        <section>
+          <h1 class="text-4xl text-center font-mplus mt-12 mb-8">
+            Oops, not found
+          </h1>
+          <div class="text-center py-4">
+            <a
+              href="/"
+              class="inline-flex items-center gap-1 underline underline-offset-2 decoration-red-600"
+              >Go to Index <IoChevronForward /></a
+            >
+          </div>
+          <div class="flex flex-col justify-center my-4 text-center">
+            <img
+              class="border border-slate-300 dark:border-zinc-700 rounded-xl aspect-auto mx-auto"
+              width={100 * 2}
+              src="/qrcode-wechat.jpg"
+              alt="qrcode-wechat"
+            />
+            <p class="font-semibold text-xl mt-2">公号同步更新，欢迎关注👻</p>
+          </div>
+        </section>
+      </Content>
+      <Footer />
+    </main>
+  </Body>
+</html>
