@@ -3,6 +3,7 @@ import HeaderLink from './HeaderLink.astro'
 import { IoLogoGithub } from 'react-icons/io5/index.js'
 import BlogLogo from './icons/bloglogo'
 import ThemeToggle from './ThemeToggleButton'
+import DropdownMenu from './DropdownMenu'
 ---
 
 <header class="w-full py-14 p-2 backdrop-blur-md">
@@ -24,11 +25,17 @@ import ThemeToggle from './ThemeToggleButton'
         <HeaderLink href="/posts">Posts</HeaderLink>
         <HeaderLink href="/works">Works</HeaderLink>
         <HeaderLink href="/about">About</HeaderLink>
-        <HeaderLink href="https://github.com/withastro/astro" target="_blank">
+        <HeaderLink
+          href="https://github.com/WanTong-surak/code4life-blog"
+          target="_blank"
+        >
           <IoLogoGithub /> Source
         </HeaderLink>
       </div>
-      <ThemeToggle client:load />
+      <div>
+        <ThemeToggle client:visible />
+        <DropdownMenu client:visible />
+      </div>
     </nav>
   </div>
 </header>
