@@ -1,5 +1,35 @@
 ---
 import Layout from '../layouts/AboutPost.astro'
+const techList = [
+  {
+    name: 'C',
+    logoUrl: 'https://img.shields.io/badge/Java-5%2B-brightgreen'
+  },
+  {
+    name: 'Spring',
+    logoUrl: 'https://img.shields.io/badge/Spring-5%2B-yellowgreen'
+  },
+  {
+    name: 'HTML5',
+    logoUrl: 'https://img.shields.io/badge/HTML5-6%2B-red'
+  },
+  {
+    name: 'CSS3',
+    logoUrl: 'https://img.shields.io/badge/CSS3-3%2B-brightgreen'
+  },
+  {
+    name: 'MySql',
+    logoUrl: 'https://img.shields.io/badge/MySql-6%2B-yellowgreen'
+  },
+  {
+    name: 'React',
+    logoUrl: 'https://img.shields.io/badge/React-1%2B-brightgreen'
+  },
+  {
+    name: 'Vue',
+    logoUrl: 'https://img.shields.io/badge/Vue-3%2B-brightgreen'
+  }
+]
 ---
 
 <Layout
@@ -14,8 +44,22 @@ import Layout from '../layouts/AboutPost.astro'
     >&nbsp;&nbsp;
     <ul>
       <li>🏘️&nbsp;沪飘，准备于上海定居</li>
-      <li>📚&nbsp;大学计算机专业（嵌入式方向），工作中转Java后端开发</li>
-      <li>🛠️&nbsp;全栈工程师（Java+React+Flutter+SQL），还在不断学习......</li>
+      <li>🏫&nbsp;大学计算机专业（嵌入式方向），工作中转Java后端开发</li>
+      <li>🛠️&nbsp;全栈工程师（Java+React+Flutter+SQL），还在努力修行......</li>
+      <li>🏃‍♂️&nbsp;喜欢慢跑和非专业骑行，偶尔出去爬山</li>
+      <li>👨‍💻&nbsp;4+ Java后端工程师开发经验</li>
     </ul>
   </p>
+  <h2>个人技术栈（博而不精）:</h2>
+  <div class="h-16">
+    {
+      techList.map(item => (
+        <img
+          src={item.logoUrl}
+          alt={item.name}
+          class="h-5 float-left mr-1 my-1"
+        />
+      ))
+    }
+  </div>
 </Layout>
