@@ -17,7 +17,7 @@ export default function BlogList(props: { list: any[] }) {
           {
             blog.data.tag ? (
               blog.data.tag.map((t: any) => (
-                <span className="text-red-600 text-sm bg-zinc-200 dark:bg-zinc-700 rounded mr-2 mb-2 px-1">{t}</span>
+                <span key={t} className="text-red-600 text-sm bg-zinc-200 dark:bg-zinc-700 rounded mr-2 mb-2 px-1">{t}</span>
               ))
             ) : (<div></div>)
           }
