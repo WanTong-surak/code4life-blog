@@ -16,7 +16,7 @@ import { FaTelegramPlane } from 'react-icons/fa/index.js'
 import FormattedDate from '../components/FormattedDate.astro'
 import { getCollection } from 'astro:content'
 const posts = (await getCollection('blog')).sort(
-  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 )
 ---
 
@@ -36,7 +36,7 @@ const posts = (await getCollection('blog')).sort(
             无限畅想，🤟不断折腾。个人主业后端，却对新技术新领域不定时涌动出莫名的欲望，所以前端也懂一些，个人定位更偏向全栈（gan）开发，也正在拓展其他技能。
             截止目前一共发布了{posts.length}篇博客，共{
               posts.reduce((sum, item) => (sum = sum + item.data.wordCount), 0)
-            }字，折腾过0个作品，共收益0￥。
+            }字，折腾过0个作品。
             <a
               class="inline-flex items-center gap-1 indent-1 text-red-600"
               href="/about"

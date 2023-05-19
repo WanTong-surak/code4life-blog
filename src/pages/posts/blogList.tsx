@@ -1,10 +1,10 @@
 export default function BlogList(props: { list: any[] }) {
   return (
     <ul className='pl-4'>
-      {props.list.map(blog => (
+      {props.list.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).map(blog => (
         <li className='my-2 text-lg' key={blog.data.title}>
           <time className="text-gray-400 mr-5" dateTime={blog.data.pubDate.toISOString()}>
-            {
+            #&nbsp;{
               blog.data.pubDate.toLocaleDateString('en-us', {
                 day: 'numeric',
                 month: 'short',
