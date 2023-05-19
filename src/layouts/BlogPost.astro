@@ -25,7 +25,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props
     <Header />
     <main class="pt-2">
       <article
-        class="px-8 mx-auto max-w-5xl prose dark:prose-invert prose-img:rounded-xl prose-a:text-red-600 hover:prose-a:underline prose-hr:my-3"
+        class="px-8 mx-auto max-w-4xl prose dark:prose-invert prose-img:rounded-xl prose-a:text-red-600 hover:prose-a:underline prose-hr:my-3"
       >
         {heroImage && <img width={720} height={360} src={heroImage} alt="" />}
         <h1 class="title py-2">{title}</h1>
