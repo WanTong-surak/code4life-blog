@@ -39,8 +39,34 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props
         }
         <hr />
         <slot />
-        <hr class="border-dashed border-gray-300 my-10" />
+        <div class="flex justify-center">
+          <hr class="border-dashed border-gray-300 my-10 w-1/2" />
+          <h4 class="text-gray-300">End</h4>
+          <hr class="border-dashed border-gray-300 my-10 w-1/2" />
+        </div>
+        <div class="bg-zinc-200 dark:bg-zinc-700 p-3 mb-3">
+          <div>
+            <a
+              rel="license"
+              href="http://creativecommons.org/licenses/by-sa/4.0/"
+              ><img
+                class="h-4 m-0 mb-2"
+                alt="知识共享许可协议"
+                style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+              /></a
+            >
+            本文采用<a
+              rel="license"
+              href="http://creativecommons.org/licenses/by-sa/4.0/deed.zh"
+              >「CC BY-SA 4.0」</a
+            >知识共享许可协议，如果喜欢我的文字， 欢迎<a href="/rss.xml"
+              >订阅“code4life”博客</a
+            >。
+          </div>
+        </div>
       </article>
+
       <script
         src="https://utteranc.es/client.js"
         repo="WanTong-surak/blog-comment"
