@@ -1,58 +1,29 @@
 ---
 import Layout from '../layouts/AboutPost.astro'
 const techList = [
-  {
-    name: 'C',
-    logoUrl: 'https://img.shields.io/badge/Java-5%2B-brightgreen'
-  },
+  { name: 'Java', url: 'https://img.shields.io/badge/Java-5%2B-brightgreen' },
   {
     name: 'Spring',
-    logoUrl: 'https://img.shields.io/badge/Spring-5%2B-yellowgreen'
+    url: 'https://img.shields.io/badge/Spring-5%2B-yellowgreen'
   },
-  {
-    name: 'HTML5',
-    logoUrl: 'https://img.shields.io/badge/HTML5-6%2B-red'
-  },
-  {
-    name: 'CSS3',
-    logoUrl: 'https://img.shields.io/badge/CSS3-3%2B-brightgreen'
-  },
-  {
-    name: 'MySql',
-    logoUrl: 'https://img.shields.io/badge/MySql-6%2B-yellowgreen'
-  },
-  {
-    name: 'React',
-    logoUrl: 'https://img.shields.io/badge/React-1%2B-brightgreen'
-  },
-  {
-    name: 'Vue',
-    logoUrl: 'https://img.shields.io/badge/Vue-3%2B-brightgreen'
-  },
+  { name: 'HTML5', url: 'https://img.shields.io/badge/HTML5-6%2B-red' },
+  { name: 'CSS3', url: 'https://img.shields.io/badge/CSS3-3%2B-brightgreen' },
+  { name: 'MySql', url: 'https://img.shields.io/badge/MySql-6%2B-yellowgreen' },
+  { name: 'React', url: 'https://img.shields.io/badge/React-1%2B-brightgreen' },
+  { name: 'Vue', url: 'https://img.shields.io/badge/Vue-3%2B-brightgreen' },
   {
     name: 'JavaScript',
-    logoUrl: 'https://img.shields.io/badge/JavaScript-4%2B-green'
+    url: 'https://img.shields.io/badge/JavaScript-4%2B-green'
   },
   {
     name: 'TypeScript',
-    logoUrl: 'https://img.shields.io/badge/TypeScript-1%2B-yellow'
+    url: 'https://img.shields.io/badge/TypeScript-1%2B-yellow'
   },
-  {
-    name: 'Redis',
-    logoUrl: 'https://img.shields.io/badge/Redis-4%2B-blue'
-  },
-  {
-    name: 'Flutter',
-    logoUrl: 'https://img.shields.io/badge/Flutter-1%2B-blue'
-  },
-  {
-    name: 'Astro',
-    logoUrl: 'https://img.shields.io/badge/Astro-1%2B-blueviolet'
-  },
-  {
-    name: 'Vim',
-    logoUrl: 'https://img.shields.io/badge/Vim-3%2B-yellow'
-  }
+  { name: 'Redis', url: 'https://img.shields.io/badge/Redis-4%2B-blue' },
+  { name: 'Flutter', url: 'https://img.shields.io/badge/Flutter-1%2B-blue' },
+  { name: 'Astro', url: 'https://img.shields.io/badge/Astro-1%2B-blueviolet' },
+  { name: 'Vim', url: 'https://img.shields.io/badge/Vim-3%2B-yellow' },
+  { name: 'C', url: 'https://img.shields.io/badge/C-3%2B-yellowgreen' }
 ]
 ---
 
@@ -79,11 +50,17 @@ const techList = [
       </li>
       <li>🏃‍♂️&nbsp;喜欢慢跑和非专业骑行，偶尔出去爬山</li>
       <li>👨‍💻&nbsp;5+ Java后端工程师开发经验</li>
-      <li>📚&nbsp;非常喜爱《平凡的世界》，更是资深网文患者</li>
+      <li>📚&nbsp;非常喜爱《平凡的世界》，更是资深网文患者&美剧迷</li>
       <li>
         ⏱️&nbsp;个人工作之余的<a
           href="https://reliable-driver-3e2.notion.site/3bc8504fc6b3482a8f1871a4b8ab0baa"
           >「日程安排」</a
+        >
+      </li>
+      <li>
+        ⏱️&nbsp;最近在减肥，在此也做个记录<a
+          href="https://reliable-driver-3e2.notion.site/a0428a2609544588ad648c7087c730b1"
+          >「减脂日志」</a
         >
       </li>
     </ul>
@@ -105,7 +82,7 @@ const techList = [
     <p>
       工作和平时用的最多都是苹果MBP（2021版），随身携带的有iPhone 12
       mini和AirPods
-      Pro，个人通勤坐地铁必备的两件套。说不清自己是不是苹果重度用户，但是确实已经用习惯了，且暂无什么糟糕体验让自己脱离这个熟悉的生态。
+      Pro，个人通勤坐地铁必备的两件套。说不清自己是不是苹果重度用户，也可能是用习惯了，熟悉苹果的生态。
     </p>
     <p>
       配套的工具有扩展坞和笔记本电脑隐形便携支架(可以直接贴在电脑底部)；后续计划会买一个便携的扩展屏，对于开发来说，两块屏真的很重要。
@@ -115,11 +92,7 @@ const techList = [
   <div class="h-10">
     {
       techList.map(item => (
-        <img
-          src={item.logoUrl}
-          alt={item.name}
-          class="h-5 float-left mr-1 my-1"
-        />
+        <img src={item.url} alt={item.name} class="h-5 float-left mr-1 my-1" />
       ))
     }
   </div>
